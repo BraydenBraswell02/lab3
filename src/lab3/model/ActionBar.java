@@ -1,4 +1,4 @@
-package lab3;
+package lab3.model;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import lab3.Main;
 
 public class ActionBar extends JPanel {
 

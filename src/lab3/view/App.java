@@ -1,4 +1,4 @@
-package lab3;
+package lab3.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +10,10 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+
+import lab3.model.ActionBar;
+import lab3.model.GameActionBar;
+import lab3.model.GameMode;
 
 public class App implements Runnable {
 

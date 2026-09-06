@@ -1,4 +1,4 @@
-package lab3;
+package lab3.model;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import lab3.Main;
 
 public class GameActionBar extends JPanel {
 

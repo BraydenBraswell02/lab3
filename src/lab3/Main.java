@@ -1,5 +1,7 @@
 package lab3;
 
+import lab3.view.App;
+
 public class Main {
 
   public static App app = new App();
