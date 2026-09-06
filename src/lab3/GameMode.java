@@ -1,4 +1,4 @@
-package lab3.model;
+package lab3;
 
 public enum GameMode {
   HIGHER_LOWER,

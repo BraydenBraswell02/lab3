@@ -11,9 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import lab3.GameMode;
 import lab3.model.ActionBar;
 import lab3.model.GameActionBar;
-import lab3.model.GameMode;
 
 public class App implements Runnable {
 
