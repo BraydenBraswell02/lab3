@@ -16,9 +16,20 @@ public class App implements Runnable {
   public final int frameWidth  = 500;
   public final int frameHeight = 300;
 
+  public final int minNum = 1;
+  public final int maxNum = 100;
+
+  public GameMode gameMode = GameMode.HIGHER_LOWER;
+
+  public boolean gameRunning = false;
+
   public Random random = new Random();
 
   public int rNum = random.nextInt();
+
+  public ActionBar actionBar = new ActionBar();
+
+  public GameActionBar gameActionBar = new GameActionBar();
 
   public JFrame frame = new JFrame();
 
@@ -32,9 +43,11 @@ public class App implements Runnable {
 
       g2d.fillRect(0, 0, getWidth(), getHeight());
 
+      if (!gameRunning) { return; }
+
       g2d.setColor(Color.BLACK);
 
-      g2d.drawString(rNum + "", 250, 150);
+      g2d.drawString("I am thinking of a number between " + minNum + " and " + maxNum, 15, 30);
     } 
   };
   
@@ -49,11 +62,13 @@ public class App implements Runnable {
     frame.setLocation(frame.getX() - frameWidth / 2, frame.getY() - frameHeight / 2);
 
     frame.getContentPane().add(renderPanel, BorderLayout.CENTER);
-    frame.getContentPane().add(new ActionBar(), BorderLayout.SOUTH);
+    frame.getContentPane().add(actionBar, BorderLayout.SOUTH);
 
     frame.pack();
 
     frame.setVisible(true);
+
+    frame.requestFocus();
   }
 
   public void run() {

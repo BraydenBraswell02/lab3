@@ -1,5 +1,6 @@
 package lab3;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 import java.awt.event.ActionEvent;
@@ -16,6 +17,16 @@ public class ActionBar extends JPanel {
     
     public void actionPerformed(ActionEvent e) {
 
+      Main.app.gameMode = switch (gameModeComboBox.getSelectedIndex()) {
+
+        case 0 -> GameMode.HIGHER_LOWER;
+
+        case 1 -> GameMode.CLOSER_AWAY;
+
+        default -> GameMode.UNKNOWN;
+      };
+
+      System.out.println(Main.app.gameMode);
     }
   };
 
@@ -23,6 +34,15 @@ public class ActionBar extends JPanel {
     
     public void actionPerformed(ActionEvent e) {
 
+      Main.app.frame.getContentPane().add(Main.app.gameActionBar, BorderLayout.SOUTH);
+
+      Main.app.frame.getContentPane().remove(Main.app.actionBar);
+
+      Main.app.frame.requestFocus();
+
+      Main.app.frame.setVisible(true);
+
+      Main.app.gameRunning = true;
     }
   };
 
