@@ -1,5 +1,6 @@
 package lab3.controller;
 
+import lab3.GameMode;
 import lab3.Main;
 
 import java.awt.BorderLayout;
@@ -14,6 +15,39 @@ public class GameActionBarListener {
 	public static ActionListener guessButtonListener = new ActionListener() {
     
     public void actionPerformed(ActionEvent e) {
+
+			try {
+
+				if (Integer.parseInt(Main.app.gameActionBar.textField.getText()) < Main.app.rNum && Main.app.gameMode == GameMode.HIGHER_LOWER) {
+			
+					Main.app.guessString = "The number is higher than " + Main.app.gameActionBar.textField.getText() + ".";
+				} else if (Integer.parseInt(Main.app.gameActionBar.textField.getText()) > Main.app.rNum && Main.app.gameMode == GameMode.HIGHER_LOWER) {
+					
+					Main.app.guessString = "The number is lower than " + Main.app.gameActionBar.textField.getText() + ".";
+				} else if (Integer.parseInt(Main.app.gameActionBar.textField.getText()) == Main.app.rNum) {
+					
+					Main.app.guessString = Main.app.gameActionBar.textField.getText() + " is the correct answer!";
+
+					return;
+				} else if (Math.abs(Integer.parseInt(Main.app.gameActionBar.textField.getText()) - Main.app.rNum) < Math.abs(Main.app.lastGuess - Main.app.rNum) && Main.app.gameMode == GameMode.CLOSER_AWAY) {
+			
+					Main.app.guessString = Main.app.gameActionBar.textField.getText() + " is closer.";
+				} else if (Math.abs(Integer.parseInt(Main.app.gameActionBar.textField.getText()) - Main.app.rNum) > Math.abs(Main.app.lastGuess - Main.app.rNum) && Main.app.gameMode == GameMode.CLOSER_AWAY) {
+					
+					Main.app.guessString = Main.app.gameActionBar.textField.getText() + " is farther away.";
+				} else {
+
+					Main.app.guessString = Main.app.gameActionBar.textField.getText() + " is the correct answer!";
+
+					return;
+				}
+
+				Main.app.lastGuess = Integer.parseInt(Main.app.gameActionBar.textField.getText());
+
+			} catch (Exception e0) {
+
+				Main.app.guessString = "Guess must be a number.";
+			}
 
       Main.app.gameActionBar.textField.setText("");
 

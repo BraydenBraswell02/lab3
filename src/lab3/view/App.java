@@ -29,7 +29,11 @@ public class App implements Runnable {
 
   public Random random = new Random();
 
-  public int rNum = random.nextInt();
+  public int rNum = 0;
+
+  public String guessString = "Enter a number...";
+
+  public int lastGuess = maxNum + 1;
 
   public ActionBar actionBar = new ActionBar();
 
@@ -52,7 +56,9 @@ public class App implements Runnable {
       g2d.setColor(Color.BLACK);
 
       g2d.drawString("I am thinking of a number between " + minNum + " and " + maxNum, 15, 30);
-    } 
+
+      g2d.drawString(guessString, 15, 60);
+    }
   };
   
   public void init() {

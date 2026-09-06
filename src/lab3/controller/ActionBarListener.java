@@ -21,8 +21,6 @@ public class ActionBarListener {
 
         default -> GameMode.UNKNOWN;
       };
-
-      System.out.println(Main.app.gameMode);
     }
   };
 
@@ -39,7 +37,13 @@ public class ActionBarListener {
       Main.app.frame.setVisible(true);
 
       Main.app.gameRunning = true;
-    }
+
+			Main.app.rNum = Math.abs(Main.app.random.nextInt() % (Main.app.maxNum - Main.app.minNum + 1) + Main.app.minNum);
+    
+			Main.app.guessString = "Enter a number...";
+
+			Main.app.lastGuess = Main.app.maxNum + 1;
+		}
   };
 
   public static ActionListener exitGameButtonListener = new ActionListener() {
